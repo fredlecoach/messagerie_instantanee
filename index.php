@@ -28,9 +28,9 @@ if(isset($_POST['valider'])){
     echo "Message envoyé!";
 
   }else{
-    echo "Please, enter your message...";
+    echo "Please, enter your message...";}
   }
-}
+  
 
 ?>
 
@@ -42,6 +42,7 @@ if(isset($_POST['valider'])){
   <title>WinkChat</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -82,9 +83,9 @@ if(isset($_POST['valider'])){
     </div>
   </div>
 
-  <div class="conversation">
+  <div class="conversation" id="conversation">
 
-    <div class="talk left">
+    <!-- <div class="talk left">
       <img src="./images/avatar_femme.png" alt="avatar">
       <p>Coucou!</p>
     </div>
@@ -99,7 +100,7 @@ if(isset($_POST['valider'])){
     <div class="talk right">
       <p>Pense à prendre des vacances</p>
       <img src="./images/avatar.png" alt="avatar">
-    </div>
+    </div> -->
   </div>
 
   <form action="" method="post" class="chat-form">
@@ -121,7 +122,12 @@ if(isset($_POST['valider'])){
 
     </div>
 
-
+    <script>
+  setInterval('load_messages()', 500);
+  function load_messages(){
+    $('#conversation').load('loadingMessages.php');
+  }
+</script>
 
   </form>
 
